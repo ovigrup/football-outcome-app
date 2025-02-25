@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: football-outcome-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: API_FOOTBALL_KEY
+        value: f92c0f658c385b16d56814abe4ab643f
+      - key: SPORTMONKS_KEY
+        value: RGhYnYoTpi4uGGmttftyZZcmhAq4XITZOvC5oGPuEgQhD9F8MqOkR1xqiYaf
