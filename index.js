@@ -14,7 +14,8 @@ app.get('/api-football', async (req, res) => {
     const data = await apiFootball.getTodayAndFutureFixtures();
     res.json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    console.error('Error fetching API-Football data:', error.message);
+    res.status(500).send(`Error fetching API-Football data: ${error.message}`);
   }
 });
 
@@ -23,7 +24,8 @@ app.get('/sportmonks', async (req, res) => {
     const data = await sportMonks.getTodayAndFutureFixtures();
     res.json(data);
   } catch (error) {
-    res.status(500).send(error.message);
+    console.error('Error fetching SportMonks data:', error.message);
+    res.status(500).send(`Error fetching SportMonks data: ${error.message}`);
   }
 });
 

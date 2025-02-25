@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = process.env.API_FOOTBALL_KEY;
+const API_KEY = process.env.API_FOOTBALL_KEY; // Use environment variable
 const BASE_URL = 'https://v3.football.api-sports.io/';
 
 const getTodayAndFutureFixtures = async () => {
@@ -16,6 +16,7 @@ const getTodayAndFutureFixtures = async () => {
     });
     return response.data;
   } catch (error) {
+    console.error('Error fetching data from API-Football:', error.response ? error.response.data : error.message);
     throw new Error('Error fetching data from API-Football');
   }
 };
