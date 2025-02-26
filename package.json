@@ -1,7 +1,7 @@
 {
   "name": "football-outcome-app",
   "version": "1.0.0",
-  "description": "A football outcome app integrating API-Football and SportMonks",
+  "description": "A football outcome app integrating API-Football and OpenLigaDB",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

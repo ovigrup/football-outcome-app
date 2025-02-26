@@ -9,19 +9,24 @@ const fetchApiFootballData = async () => {
   }
 };
 
-const fetchSportMonksData = async () => {
+const fetchOpenLigaDBMatches = async () => {
   try {
-    const response = await axios.get('https://api.sportmonks.com/v3/football/fixtures', {
-      params: {
-        api_token: 'YOUR_SPORTMONKS_API_KEY',
-        include: 'teams,stats'
-      }
-    });
-    console.log('SportMonks Data:', response.data);
+    const response = await axios.get('https://football-outcome-app.onrender.com/openligadb/matches');
+    console.log('OpenLigaDB Match Data:', response.data);
   } catch (error) {
-    console.error('Error fetching SportMonks data:', error.response ? error.response.data : error.message);
+    console.error('Error fetching OpenLigaDB match data:', error.response ? error.response.data : error.message);
+  }
+};
+
+const fetchOpenLigaDBLeagues = async () => {
+  try {
+    const response = await axios.get('https://football-outcome-app.onrender.com/openligadb/leagues');
+    console.log('OpenLigaDB Leagues:', response.data);
+  } catch (error) {
+    console.error('Error fetching OpenLigaDB leagues:', error.response ? error.response.data : error.message);
   }
 };
 
 fetchApiFootballData();
-fetchSportMonksData();
+fetchOpenLigaDBMatches();
+fetchOpenLigaDBLeagues();

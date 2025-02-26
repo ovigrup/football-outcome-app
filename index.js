@@ -1,6 +1,6 @@
 const express = require('express');
 const apiFootball = require('./apiFootball');
-const sportMonks = require('./sportMonks');
+const openLigaDB = require('./openLigaDB');
 
 const app = express();
 const port = 3000;
@@ -19,13 +19,23 @@ app.get('/api-football', async (req, res) => {
   }
 });
 
-app.get('/sportmonks', async (req, res) => {
+app.get('/openligadb/matches', async (req, res) => {
   try {
-    const data = await sportMonks.getTodayAndFutureFixtures();
+    const data = await openLigaDB.getTodayAndFutureFixtures();
     res.json(data);
   } catch (error) {
-    console.error('Error fetching SportMonks data:', error.message);
-    res.status(500).send(`Error fetching SportMonks data: ${error.message}`);
+    console.error('Error fetching OpenLigaDB match data:', error.message);
+    res.status(500).send(`Error fetching OpenLigaDB match data: ${error.message}`);
+  }
+});
+
+app.get('/openligadb/leagues', async (req, res) => {
+  try {
+    const data = await openLigaDB.getAvailableLeagues();
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching OpenLigaDB leagues:', error.message);
+    res.status(500).send(`Error fetching OpenLigaDB leagues: ${error.message}`);
   }
 });
 
